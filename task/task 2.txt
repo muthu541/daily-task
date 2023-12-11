@@ -1,0 +1,58 @@
+
+2. Write a blog about objects and its internal representation in Javascript
+
+
+Introduction:
+
+JavaScript, the language of the web, is renowned for its versatility and flexibility. One of its fundamental features is the ability to work with objects, which serve as the building blocks for creating complex data structures and organizing code. In this blog post, we'll delve into the world of objects in JavaScript, exploring their internal representation and shedding light on how they function under the hood.
+
+Objects in JavaScript:
+In JavaScript, objects are a composite data type that allows you to group related data and functionality together. They consist of key-value pairs, where each key is a string and each value can be of any data type, including other objects. Objects can be created using the literal syntax:
+
+javascript
+Copy code
+let person = {
+  name: "John Doe",
+  age: 30,
+  job: "Developer"
+};
+Internal Representation:
+1. Properties:
+Objects in JavaScript are essentially collections of properties. Each property consists of a key (or name) and a value. Internally, these properties are stored in a special format known as a hash table. This allows for efficient retrieval and update of properties, making JavaScript objects performant even as they grow in size.
+
+2. Prototype Chain:
+JavaScript is a prototype-based language, meaning that objects can inherit properties and methods from other objects. This inheritance is achieved through the prototype chain. Each object in JavaScript has a prototype, and when a property or method is not found on an object, JavaScript looks up the prototype chain until it finds the property or reaches the end.   
+   javascript
+
+// Creating an object with a prototype
+let parentObject = { parentProperty: "I am inherited" };
+let childObject = Object.create(parentObject);
+
+console.log(childObject.parentProperty); // Outputs: I am inherited
+3. Functions as Objects:
+In JavaScript, functions are a special type of object. They can have properties and methods just like any other object. This duality allows for powerful programming constructs, such as creating objects with behavior and state encapsulated.
+
+javascript
+
+// Function as an object
+function Circle(radius) {
+  this.radius = radius;
+  this.calculateArea = function () {
+    return Math.PI * this.radius ** 2;
+  };
+}
+
+let myCircle = new Circle(5);
+console.log(myCircle.calculateArea()); // Outputs: 78.54
+Memory Management:
+Understanding the internal representation of objects is crucial for effective memory management in JavaScript. Objects are allocated memory dynamically, and it's the responsibility of the JavaScript engine's garbage collector to reclaim memory from objects that are no longer in use. Circular references, where objects reference each other, can pose challenges for the garbage collector, requiring careful consideration in application design.
+
+Conclusion:
+Objects are at the heart of JavaScript, providing a flexible and powerful mechanism for organizing and structuring data. By understanding their internal representation, developers can write more efficient and optimized code. The interplay between properties, prototype chains, and functions as objects showcases the elegance and complexity of JavaScript's object-oriented design.
+
+As you continue your journey in JavaScript development, a deep understanding of how objects work internally will empower you to write cleaner, more performant code, and navigate the intricacies of JavaScript with confidence.
+
+
+
+
+
